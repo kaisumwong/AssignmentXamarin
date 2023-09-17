@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+                     
+            
+            <CollectionView ItemsLayout="VerticalGrid,2" x:Name="MovieList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <StackLayout Padding="10">
+                            <StackLayout HorizontalOptions="FillAndExpand" 
+                                         VerticalOptions="FillAndExpand">
+
+                                <Image HeightRequest="250" Aspect="AspectFill" Source="{Binding MoviePoster}"
+                                       HorizontalOptions="FillAndExpand">
+                                    
+                                </Image>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                                
+                                
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
