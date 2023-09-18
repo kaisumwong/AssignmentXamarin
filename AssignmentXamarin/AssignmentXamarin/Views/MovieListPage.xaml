@@ -4,16 +4,28 @@
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                      xmlns:Cards="clr-namespace:PanCardView;assembly=PanCardView"
              xmlns:processors="clr-namespace:PanCardView.Processors;assembly=PanCardView"
-
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False" BackgroundColor="Black"
             >
 
-    <Grid RowDefinitions="*,*">
-        <StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <Cards:CoverFlowView 
-                    BackgroundColor="#161616"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <StackLayout>
+
+                <Cards:CoverFlowView 
+                    BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
                     PositionShiftValue="80"
@@ -22,38 +34,54 @@
                 IndicatorView="IndiacatorView"  
                 IsUserInteractionRunning="True"
                 >
-                <x:Arguments>
-                    <processors:CoverFlowProcessor
+                    <x:Arguments>
+                        <processors:CoverFlowProcessor
                             ScaleFactor="0.4"
-                            OpacityFactor="0.1"
+                            OpacityFactor="0."
                             
                             />
-                </x:Arguments>
-                <Cards:CoverFlowView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Margin="40,0">
-                                <Image Source="{Binding MoviePoster}" ></Image>
-                            </StackLayout>
-                            
-                        </ViewCell>
-                        
-                    </DataTemplate>
-                </Cards:CoverFlowView.ItemTemplate>
-            </Cards:CoverFlowView>
-            <IndicatorView x:Name="IndiacatorView"
+                    </x:Arguments>
+                    <Cards:CoverFlowView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="40,0">
+                                    <Image Source="{Binding MoviePoster}" ></Image>
+                                </StackLayout>
+
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </Cards:CoverFlowView.ItemTemplate>
+                </Cards:CoverFlowView>
+                <IndicatorView x:Name="IndiacatorView"
                            IndicatorColor="LightGray"
-                           
+                           SelectedIndicatorColor="Red"
                            >
-            </IndicatorView>
-        </StackLayout>
-        
+                </IndicatorView>
+            </StackLayout>
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+
+
+            <ScrollView Orientation="Vertical">
+
+                <StackLayout>
+                    <Label Text="Now Showing" TextColor="White" HorizontalTextAlignment="Center"></Label> 
+                </StackLayout>
+                
+                
+            </ScrollView>
+
+
+        </Grid>
+
+
+
     </Grid>
 
-    
-    
-
-   
 
 
 </ContentPage>

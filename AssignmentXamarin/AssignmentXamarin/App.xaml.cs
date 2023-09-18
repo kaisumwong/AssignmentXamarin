@@ -12,7 +12,7 @@ namespace AssignmentXamarin
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MovieListPage());
+            MainPage = new NavigationPage(new TabbedPage1());
         }
 
         protected override void OnStart()
