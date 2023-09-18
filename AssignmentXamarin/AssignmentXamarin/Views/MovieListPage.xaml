@@ -1,35 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
-        <StackLayout BackgroundColor="Black">
-                     
-            
-            <CollectionView ItemsLayout="VerticalGrid,2" x:Name="MovieList">
-                <CollectionView.ItemTemplate>
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                     xmlns:Cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:processors="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False" BackgroundColor="Black"
+            >
+
+    <Grid RowDefinitions="*,*">
+        <StackLayout>
+
+            <Cards:CoverFlowView 
+                    BackgroundColor="#161616"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    PositionShiftValue="80"
+                    ItemsSource="{Binding movies}" x:Name="MovieList"
+                    IsCyclical="True"
+                IndicatorView="IndiacatorView"  
+                IsUserInteractionRunning="True"
+                >
+                <x:Arguments>
+                    <processors:CoverFlowProcessor
+                            ScaleFactor="0.4"
+                            OpacityFactor="0.1"
+                            
+                            />
+                </x:Arguments>
+                <Cards:CoverFlowView.ItemTemplate>
                     <DataTemplate>
-                        
-                        <StackLayout Padding="10">
-                            <StackLayout HorizontalOptions="FillAndExpand" 
-                                         VerticalOptions="FillAndExpand">
-
-                                <Image HeightRequest="250" Aspect="AspectFill" Source="{Binding MoviePoster}"
-                                       HorizontalOptions="FillAndExpand">
-                                    
-                                </Image>
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                </StackLayout.GestureRecognizers>
-                                
-                                
+                        <ViewCell>
+                            <StackLayout Margin="40,0">
+                                <Image Source="{Binding MoviePoster}" ></Image>
                             </StackLayout>
-                        </StackLayout>
+                            
+                        </ViewCell>
+                        
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            
+                </Cards:CoverFlowView.ItemTemplate>
+            </Cards:CoverFlowView>
+            <IndicatorView x:Name="IndiacatorView"
+                           IndicatorColor="LightGray"
+                           
+                           >
+            </IndicatorView>
         </StackLayout>
-    </ContentPage.Content>
+        
+    </Grid>
+
+    
+    
+
+   
+
+
 </ContentPage>
