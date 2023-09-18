@@ -37,7 +37,7 @@
                     <x:Arguments>
                         <processors:CoverFlowProcessor
                             ScaleFactor="0.4"
-                            OpacityFactor="0."
+                            OpacityFactor="0.1"
                             
                             />
                     </x:Arguments>
