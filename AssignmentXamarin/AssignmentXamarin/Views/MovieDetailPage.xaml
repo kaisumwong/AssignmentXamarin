@@ -3,20 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="AssignmentXamarin.Views.MovieDetailPage"
-             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="False" BackgroundColor="Black"
              >
-    
-    <ContentPage.Content>
-        <StackLayout>
 
-            <WebView HorizontalOptions="FillAndExpand"
-                     HeightRequest="250"
+    <ContentPage.Content>
+
+        <StackLayout>
+            <WebView 
+              
+                     HeightRequest="320"
                      x:Name="TrailerDisplay">
-                
-                
-                
+
             </WebView>
-            
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1200"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+
+            <Frame Grid.Row="0" CornerRadius="15" BackgroundColor="#0f0f0f" Margin="0,-12,0,0" HeightRequest="400">
+                
+                <Label Text="Movie Type:Drama,Story" TextColor="White"></Label>
+                
+            </Frame>
+
+
+
+
         </StackLayout>
+
+
     </ContentPage.Content>
 </ContentPage>

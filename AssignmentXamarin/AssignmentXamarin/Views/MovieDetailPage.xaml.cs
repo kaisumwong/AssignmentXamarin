@@ -18,7 +18,6 @@ namespace AssignmentXamarin.Views
             InitializeComponent();
             var htmlsource = new HtmlWebViewSource();
             htmlsource.Html = MovieDetails.MovieTrailerLink;
-
             TrailerDisplay.Source = htmlsource;
         }
     }
