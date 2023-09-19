@@ -3,26 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                      xmlns:Cards="clr-namespace:PanCardView;assembly=PanCardView"
-             xmlns:processors="clr-namespace:PanCardView.Processors;assembly=PanCardView"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:processors="clr-namespace:PanCardView.Processors;assembly=PanCardView"
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False" BackgroundColor="Black"
             >
+    <ScrollView>
+        <StackLayout x:Name="MainPageContainer" >
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="450"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        
-        <Grid Grid.Row="0" Grid.Column="0">
-            <StackLayout>
+            <!--Slider-->
+            <StackLayout  HeightRequest="450" VerticalOptions="Start">
 
                 <Cards:CoverFlowView 
                     BackgroundColor="Black"
@@ -32,8 +23,7 @@
                     ItemsSource="{Binding movies}" x:Name="MovieList"
                     IsCyclical="True"
                 IndicatorView="IndiacatorView"  
-                IsUserInteractionRunning="True"
-                >
+                IsUserInteractionRunning="True" >
                     <x:Arguments>
                         <processors:CoverFlowProcessor
                             ScaleFactor="0.4"
@@ -55,32 +45,76 @@
                 </Cards:CoverFlowView>
                 <IndicatorView x:Name="IndiacatorView"
                            IndicatorColor="LightGray"
-                           SelectedIndicatorColor="Red"
-                           >
+                           SelectedIndicatorColor="Red"  >
                 </IndicatorView>
+
+            </StackLayout>
+            <!--Content-->
+            <StackLayout VerticalOptions="FillAndExpand">
+
+                <xct:TabView TabIndicatorColor="Red" IsSwipeEnabled="False" SelectionChanged="UpdateHeightRequest">
+                    <xct:TabViewItem Text="Now Showing" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
+                        <!--NowShowing-->
+
+                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid x:Name="NowShowingContainer" ColumnSpacing="8" RowSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                <Grid.ColumnDefinitions >
+
+                                    <!-- Define your column definitions here -->
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout  Grid.Column="{Binding InColumn}" Grid.Row="{Binding InRow}" Margin="0,0,0,6" VerticalOptions="Start" >
+                                            <Image Source="{Binding MoviePoster}" Margin="0" Aspect="AspectFill"  HeightRequest="200" ></Image>
+                                        </StackLayout>
+
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </Grid>
+
+                        </StackLayout>
+
+
+
+                    </xct:TabViewItem>
+
+                    <xct:TabViewItem Text="Upcoming" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
+                        <!--Coming soon-->
+                        <StackLayout x:Name="ComingSoonContainer">
+                            <Label Text="Tab2" TextColor="White"></Label>
+                        </StackLayout>
+                    </xct:TabViewItem>
+
+                </xct:TabView>
+
             </StackLayout>
 
 
-        </Grid>
-
-        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <!--<Grid Grid.Row="1" Margin="0,20,0,0">
 
 
             <ScrollView Orientation="Vertical">
 
                 <StackLayout>
-                    <Label Text="Now Showing" TextColor="White" HorizontalTextAlignment="Center"></Label> 
+                    <Label Text="Now Showing" TextColor="White" HorizontalTextAlignment="Center"></Label>
                 </StackLayout>
-                
-                
+
+
             </ScrollView>
 
 
-        </Grid>
+        </Grid>-->
 
 
 
-    </Grid>
+        </StackLayout>
+
+    </ScrollView>
 
 
 

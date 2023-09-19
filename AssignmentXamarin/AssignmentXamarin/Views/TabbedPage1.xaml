@@ -10,6 +10,6 @@
   <!--Pages can be added as references or inline-->
 
     <views:MovieListPage IconImageSource="MovieIcon.png" Title="Movies"/>
-    <ContentPage Title="Tab 2" />
+    <ContentPage IconImageSource="LocationIcon.png" Title="Location" />
   <ContentPage Title="Tab 3" />
 </TabbedPage>
