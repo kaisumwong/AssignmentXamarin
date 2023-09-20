@@ -48,10 +48,18 @@
 
 
                     </StackLayout>
-                    
+
+                    <Label Text="Casts"  TextColor="White" FontAttributes="None" FontSize="20" Margin="0,5,0,0" HorizontalOptions="Start">
+
+                    </Label>
+
+                    <Label Text="{Binding Movie.MovieCasts}"  TextColor="White" FontAttributes="None" FontSize="Small" Margin="0,0,0,0" HorizontalOptions="Start">
+
+                    </Label>
 
 
-                          
+
+
                 </StackLayout>
 
 

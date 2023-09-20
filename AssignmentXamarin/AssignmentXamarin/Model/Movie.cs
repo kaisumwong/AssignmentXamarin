@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace AssignmentXamarin.Model
 {
-    public class Movie: INotifyPropertyChanged
+    public class Movie : INotifyPropertyChanged
     {
         protected bool SetProperty<T>(ref T backingStore, T value,
            [CallerMemberName] string propertyName = "",
@@ -49,6 +49,10 @@ namespace AssignmentXamarin.Model
         public int DurationTime { get; set; }
         public string MovieStatus { get; set; } = null;
         public string FormattedDuration { get; set; }
+        public string MovieCasts { get; set; }
+        public string MovieSynopsis { get; set; }
+        public string Subtitle { get; set; }
+
 
         //FOR grid
         public int InRow { get; set; }

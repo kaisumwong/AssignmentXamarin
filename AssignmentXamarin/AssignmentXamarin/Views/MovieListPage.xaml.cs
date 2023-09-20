@@ -26,12 +26,12 @@ namespace AssignmentXamarin.Views
             movies = new List<Movie>
             {
 
-            new Movie{MovieID=1,Description="P12 | ENG |",MoviePoster="oppenheimer.jpeg",MovieRating="PG",DurationTime=180,MovieTrailerLink=$"{trailerLinkFormat1}uYPbbksJxIg{trailerLinkFormat2}",Title="Oppenheimer",InColumn=0,InRow=0},
-            new Movie{MovieID=2,Description="Movie2",MoviePoster="Flash.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}r51cYVZWKdY{trailerLinkFormat2}",Title="Flash",InColumn=1,InRow=0},
-            new Movie{MovieID=3,Description="Movie3",MoviePoster="JohnWick.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}qEVUtrk8_B4{trailerLinkFormat2}",Title="Johnwick 4",InColumn=2,InRow=0},
-            new Movie{MovieID=4,Description="Movie4",MoviePoster="MissionImpossible.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}avz06PDqDbM{trailerLinkFormat2}",Title="Mission Impossible 7",InColumn=0,InRow=1},
-            new Movie{MovieID=5,Description="Movie5",MoviePoster="Movie5.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}r51cYVZWKdY{trailerLinkFormat2}",Title="Movie5",InColumn=1,InRow=1},
-            new Movie{MovieID=6,Description="Movie6",MoviePoster="Movie6.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}r51cYVZWKdY{trailerLinkFormat2}",Title="Movie6",InColumn=2,InRow=1},
+            new Movie{MovieID=1,Description="P12 | ENG |",Subtitle="Bahasa Melayu,Chinese",MovieCasts="Cillian Murphy , Emily Blunt",MovieSynopsis="Oppenheimer is a 2023 epic biographical thriller film[5] written and directed by Christopher Nolan and starring Cillian Murphy as J. Robert Oppenheimer, the American theoretical physicist credited with being the \"father of the atomic bomb\" for his role in the Manhattan Project—the World War II undertaking that developed the first nuclear weapons",MoviePoster="oppenheimer.jpeg",MovieRating="PG",DurationTime=180,MovieTrailerLink=$"{trailerLinkFormat1}uYPbbksJxIg{trailerLinkFormat2}",Title="Oppenheimer",InColumn=0,InRow=0},
+            new Movie{MovieID=2,Description="Movie2",Subtitle="",MovieCasts="",MoviePoster="Flash.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}r51cYVZWKdY{trailerLinkFormat2}",Title="Flash",InColumn=1,InRow=0},
+            new Movie{MovieID=3,Description="Movie3",Subtitle="",MovieCasts="",MoviePoster="JohnWick.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}qEVUtrk8_B4{trailerLinkFormat2}",Title="Johnwick 4",InColumn=2,InRow=0},
+            new Movie{MovieID=4,Description="Movie4",Subtitle="",MovieCasts="",MoviePoster="MissionImpossible.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}avz06PDqDbM{trailerLinkFormat2}",Title="Mission Impossible 7",InColumn=0,InRow=1},
+            new Movie{MovieID=5,Description="Movie5",Subtitle="",MovieCasts="",MoviePoster="Movie5.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}r51cYVZWKdY{trailerLinkFormat2}",Title="Movie5",InColumn=1,InRow=1},
+            new Movie{MovieID=6,Description="Movie6",Subtitle="",MovieCasts="",MoviePoster="Movie6.jpg",MovieRating="PG",MovieTrailerLink=$"{trailerLinkFormat1}r51cYVZWKdY{trailerLinkFormat2}",Title="Movie6",InColumn=2,InRow=1},
         };
 
             foreach(var m in movies)

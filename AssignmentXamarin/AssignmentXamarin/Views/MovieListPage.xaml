@@ -72,7 +72,13 @@
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
                                         <StackLayout  Grid.Column="{Binding InColumn}" Grid.Row="{Binding InRow}" Margin="0,0,0,6" VerticalOptions="Start" >
-                                            <Image Source="{Binding MoviePoster}" Margin="0" Aspect="AspectFill"  HeightRequest="200" ></Image>
+                                            <Image Source="{Binding MoviePoster}" Margin="0" Aspect="AspectFill"  HeightRequest="200" >
+
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                                
+                                            </Image>
                                         </StackLayout>
 
                                     </DataTemplate>
