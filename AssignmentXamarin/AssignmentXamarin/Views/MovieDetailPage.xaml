@@ -28,38 +28,35 @@
             </Grid>
 
 
-            <Frame Grid.Row="0" CornerRadius="" BackgroundColor="#0f0f0f" Margin="0,-12,0,0" HeightRequest="400">
+            <pancake:PancakeView Grid.Row="0" CornerRadius="0,0,20,20" BackgroundColor="#0f0f0f" Margin="0,-12,0,0" HeightRequest="400" >
 
-                <Label Text="{Binding Movie.Title}" TextColor="White"></Label>
+                <StackLayout>
+                    <Label Text="{Binding Movie.Title}" TextColor="White" FontAttributes="Bold" FontSize="Large" Margin="5,5,0,0" HorizontalOptions="Start">
 
-            </Frame>
+                    </Label>
 
-            <!--<CollectionView ItemsSource="{Binding NameList}" BackgroundColor="White">
-                <CollectionView.Header>
-                    <StackLayout>
-                        <Button Text="Add" Clicked="UpdateLabel"></Button>
-                        <Button Text="Load Some New" Clicked="LoadNewData"></Button>
-                        <Button Text="Delete First" Clicked="DeleteFirst"></Button>
+                    <StackLayout Orientation="Horizontal">
+
+                        <Label Text="{Binding Movie.Description}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="6,0,0,0" HorizontalOptions="Start">
+
+                        </Label>
+
+
+                        <Label Text="{Binding Movie.DurationTime}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="0,0,0,0" HorizontalOptions="Start">
+
+                        </Label>
+
+
                     </StackLayout>
+                    
 
-                </CollectionView.Header>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label TextColor="Black" Text="{Binding}" FontSize="Large"></Label>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
 
-                <CollectionView.EmptyView>
-                    <StackLayout>
-                        <Label  TextColor="White"  Text="IsLoading" FontSize="Large" HorizontalTextAlignment="Center"></Label>
-                        <ActivityIndicator IsRunning="True" Color="Red">
+                          
+                </StackLayout>
 
-                        </ActivityIndicator>
-                    </StackLayout>
-                </CollectionView.EmptyView>
-                
-            </CollectionView>-->
 
+
+            </pancake:PancakeView>
 
 
         </StackLayout>
