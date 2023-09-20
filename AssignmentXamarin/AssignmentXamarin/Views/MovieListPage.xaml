@@ -35,11 +35,13 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Margin="40,0">
-                                    <Image Source="{Binding MoviePoster}" ></Image>
+                                    <Image Source="{Binding MoviePoster}" >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
                                 </StackLayout>
-
                             </ViewCell>
-
                         </DataTemplate>
                     </Cards:CoverFlowView.ItemTemplate>
                 </Cards:CoverFlowView>

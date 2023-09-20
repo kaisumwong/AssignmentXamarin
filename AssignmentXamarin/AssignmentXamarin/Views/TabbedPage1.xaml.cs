@@ -15,6 +15,7 @@ namespace AssignmentXamarin
         public TabbedPage1()
         {
             InitializeComponent();
+            BarBackgroundColor = Color.Transparent;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace AssignmentXamarin.Model
         public double RatingStar { get; set; }
         public string MovieRating { get; set; } //G //PG //PG13 R
         public int DurationTime { get; set; }
-        public string MovieStatus { get; set; }
+        public string MovieStatus { get; set; } = null;
 
 
         //FOR grid
