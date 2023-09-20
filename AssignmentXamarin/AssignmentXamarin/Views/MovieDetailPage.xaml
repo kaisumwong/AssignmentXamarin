@@ -11,14 +11,13 @@
         <StackLayout>
             <WebView 
               
-                     HeightRequest="320"
-                     x:Name="TrailerDisplay">
+                     HeightRequest="320" Source="{Binding FormattedYoutubeList}"  >
 
             </WebView>
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1200"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -28,12 +27,38 @@
 
             </Grid>
 
-            <Frame Grid.Row="0" CornerRadius="15" BackgroundColor="#0f0f0f" Margin="0,-12,0,0" HeightRequest="400">
-                
-                <Label Text="Movie Type:Drama,Story" TextColor="White"></Label>
-                
+
+            <Frame Grid.Row="0" CornerRadius="" BackgroundColor="#0f0f0f" Margin="0,-12,0,0" HeightRequest="400">
+
+                <Label Text="{Binding Movie.Title}" TextColor="White"></Label>
+
             </Frame>
 
+            <!--<CollectionView ItemsSource="{Binding NameList}" BackgroundColor="White">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Button Text="Add" Clicked="UpdateLabel"></Button>
+                        <Button Text="Load Some New" Clicked="LoadNewData"></Button>
+                        <Button Text="Delete First" Clicked="DeleteFirst"></Button>
+                    </StackLayout>
+
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label TextColor="Black" Text="{Binding}" FontSize="Large"></Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Label  TextColor="White"  Text="IsLoading" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+                        <ActivityIndicator IsRunning="True" Color="Red">
+
+                        </ActivityIndicator>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                
+            </CollectionView>-->
 
 
 
