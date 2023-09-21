@@ -46,7 +46,7 @@ namespace AssignmentXamarin.Model
         public string MovieTrailerLink { get; set; }
         public double RatingStar { get; set; }
         public string MovieRating { get; set; } //G //PG //PG13 R
-        public int DurationTime { get; set; }
+        public TimeSpan DurationTime { get; set; }
         public string MovieStatus { get; set; } = null;
         public string FormattedDuration { get; set; }
         public string MovieCasts { get; set; }

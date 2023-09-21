@@ -8,66 +8,78 @@
 
     <ContentPage.Content>
 
-        <StackLayout>
-            <WebView 
+        <ScrollView>
+            <StackLayout>
+
+                <WebView 
               
                      HeightRequest="320" Source="{Binding FormattedYoutubeList}"  >
 
-            </WebView>
+                </WebView>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="300"></RowDefinition>
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300"></RowDefinition>
+                    </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
-            </Grid>
+                </Grid>
 
 
-            <pancake:PancakeView Grid.Row="0" CornerRadius="0,0,20,20" BackgroundColor="#0f0f0f" Margin="0,-12,0,0" HeightRequest="400" >
+                <pancake:PancakeView Grid.Row="0" CornerRadius="0,0,20,20" BackgroundColor="Black" Margin="0,-12,0,0" HeightRequest="400" >
 
-                <StackLayout>
-                    <Label Text="{Binding Movie.Title}" TextColor="White" FontAttributes="Bold" FontSize="Large" Margin="5,5,0,0" HorizontalOptions="Start">
 
-                    </Label>
-
-                    <StackLayout Orientation="Horizontal">
-
-                        <Label Text="{Binding Movie.Description}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="6,0,0,0" HorizontalOptions="Start">
+                    <StackLayout>
+                        <Label Text="{Binding Movie.Title}" TextColor="White" FontAttributes="Bold" FontSize="Large" Margin="5,5,0,0" HorizontalOptions="Start">
 
                         </Label>
 
+                        <StackLayout Orientation="Horizontal">
 
-                        <Label Text="{Binding Movie.DurationTime}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="0,0,0,0" HorizontalOptions="Start">
+                            <Label Text="{Binding Movie.Description}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="6,0,0,0" HorizontalOptions="Start">
+
+                            </Label>
+
+
+                            <Label Text="{Binding Movie.DurationTime}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="0,0,0,0" HorizontalOptions="Start">
+
+                            </Label>
+
+
+                        </StackLayout>
+
+                        <Label Text="Casts"  TextColor="White" FontAttributes="Bold" FontSize="16" Margin="5,15,0,0" HorizontalOptions="Start">
 
                         </Label>
+
+                        <Label Text="{Binding Movie.MovieCasts}"  TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="5,0,0,0" HorizontalOptions="Start">
+
+                        </Label>
+
+                        <Label Text="Synopsis" TextColor="White" FontAttributes="Bold" FontSize="16" Margin="5,15,0,0" HorizontalOptions="Start"></Label>
+
+                        <Label Text="{Binding Movie.MovieSynopsis}" TextColor="#a3a3a3" FontAttributes="None" FontSize="Small" Margin="5,0,0,0" HorizontalOptions="Start"></Label>
+
+
 
 
                     </StackLayout>
 
-                    <Label Text="Casts"  TextColor="White" FontAttributes="None" FontSize="20" Margin="0,5,0,0" HorizontalOptions="Start">
-
-                    </Label>
-
-                    <Label Text="{Binding Movie.MovieCasts}"  TextColor="White" FontAttributes="None" FontSize="Small" Margin="0,0,0,0" HorizontalOptions="Start">
-
-                    </Label>
+                </pancake:PancakeView>
 
 
+                <pancake:PancakeView CornerRadius="5" BackgroundColor="Yellow" HorizontalOptions="CenterAndExpand" WidthRequest="380" HeightRequest="40">
+                    <Label Text="BUY NOW" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" TextColor="Black"></Label>
+                </pancake:PancakeView>
 
 
-                </StackLayout>
-
-
-
-            </pancake:PancakeView>
-
-
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        
 
 
     </ContentPage.Content>

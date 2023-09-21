@@ -30,6 +30,11 @@ namespace AssignmentXamarin.Views
         }
         private MovieDetailPageVM MovieDetailPageVM;
 
+        private void BuyTicket(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(MovieLocation);
+        }
+
         //private void UpdateLabel(object sender, EventArgs e)
         //{
         //    MovieDetailPageVM.UpdateLabel();
