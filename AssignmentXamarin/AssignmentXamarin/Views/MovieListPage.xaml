@@ -8,13 +8,17 @@
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False" BackgroundColor="Black"
             >
+
+
     <ScrollView>
+
         <StackLayout x:Name="MainPageContainer" >
 
-
+            
             <!--Slider-->
             <StackLayout  HeightRequest="450" VerticalOptions="Start">
 
+                               
                 <Cards:CoverFlowView 
                     BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"

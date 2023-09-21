@@ -74,6 +74,12 @@
 
                 <pancake:PancakeView CornerRadius="5" BackgroundColor="Yellow" HorizontalOptions="CenterAndExpand" WidthRequest="380" HeightRequest="40">
                     <Label Text="BUY NOW" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" TextColor="Black"></Label>
+
+
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer>
+                        </TapGestureRecognizer>
+                    </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
 
