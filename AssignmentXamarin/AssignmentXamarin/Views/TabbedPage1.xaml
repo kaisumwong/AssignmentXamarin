@@ -7,9 +7,9 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.IsSwipePagingEnabled="False"
             android:TabbedPage.ToolbarPlacement="Bottom" BackgroundColor="Black">
-  <!--Pages can be added as references or inline-->
+    <!--Pages can be added as references or inline-->
 
     <views:MovieListPage IconImageSource="MovieIcon.png" Title="Movies"/>
-    <ContentPage IconImageSource="LocationIcon.png" Title="Location" />
-  <ContentPage Title="Tab 3" />
-</TabbedPage>
+    <views:MovieLocation IconImageSource="LocationIcon.png" Title="Location" />
+    <ContentPage Title="Tab 3" />
+</TabbedPage>    

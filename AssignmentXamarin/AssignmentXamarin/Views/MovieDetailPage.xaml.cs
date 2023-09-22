@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
 
 namespace AssignmentXamarin.Views
@@ -31,23 +32,18 @@ namespace AssignmentXamarin.Views
         private MovieDetailPageVM MovieDetailPageVM;
 
         private void BuyTicket(object sender, EventArgs e)
-        { 
+        {
+
+            var x = sender as PancakeView;
+
+            var id = x.GestureRecognizers[0] as TapGestureRecognizer;
+
+            //var movieDetails = .Where(z => z.MovieID == Convert.ToInt32(id.CommandParameter.ToString())).FirstOrDefault();
+
+          
             Navigation.PushAsync(new MovieLocation());
         }
 
-        //private void UpdateLabel(object sender, EventArgs e)
-        //{
-        //    MovieDetailPageVM.UpdateLabel();
-        //}
 
-        //private async void LoadNewData(object sender, EventArgs e)
-        //{
-        //    await MovieDetailPageVM.GetNewData();
-        //}
-
-        //private void DeleteFirst(object sender, EventArgs e)
-        //{
-        //    MovieDetailPageVM.DeleteFirst();
-        //}
     }
 }

@@ -9,17 +9,17 @@
              x:Class="AssignmentXamarin.Views.MovieListPage" NavigationPage.HasNavigationBar="False" BackgroundColor="Black"
             >
 
+    <Grid>
+        <ScrollView Padding="0,50,0,50" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
 
-    <ScrollView>
 
-        <StackLayout x:Name="MainPageContainer" >
+            <StackLayout x:Name="MainPageContainer" >
 
-            
-            <!--Slider-->
-            <StackLayout  HeightRequest="450" VerticalOptions="Start">
+                <!--Slider-->
+                <StackLayout  HeightRequest="450" VerticalOptions="Start">
 
-                               
-                <Cards:CoverFlowView 
+
+                    <Cards:CoverFlowView 
                     BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
@@ -28,86 +28,86 @@
                     IsCyclical="True"
                 IndicatorView="IndiacatorView"  
                 IsUserInteractionRunning="True" >
-                    <x:Arguments>
-                        <processors:CoverFlowProcessor
+                        <x:Arguments>
+                            <processors:CoverFlowProcessor
                             ScaleFactor="0.4"
                             OpacityFactor="0.1"
                             
                             />
-                    </x:Arguments>
-                    <Cards:CoverFlowView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Margin="40,0">
-                                    <Image Source="{Binding MoviePoster}" >
-                                        <Image.GestureRecognizers>
-                                            <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                        </Image.GestureRecognizers>
-                                    </Image>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </Cards:CoverFlowView.ItemTemplate>
-                </Cards:CoverFlowView>
-                <IndicatorView x:Name="IndiacatorView"
+                        </x:Arguments>
+                        <Cards:CoverFlowView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Margin="40,0">
+                                        <Image Source="{Binding MoviePoster}" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </Cards:CoverFlowView.ItemTemplate>
+                    </Cards:CoverFlowView>
+                    <IndicatorView x:Name="IndiacatorView"
                            IndicatorColor="LightGray"
                            SelectedIndicatorColor="Red"  >
-                </IndicatorView>
+                    </IndicatorView>
 
-            </StackLayout>
-            <!--Content-->
-            <StackLayout VerticalOptions="FillAndExpand">
+                </StackLayout>
+                <!--Content-->
+                <StackLayout VerticalOptions="FillAndExpand">
 
-                <xct:TabView TabIndicatorColor="Red" IsSwipeEnabled="False" SelectionChanged="UpdateHeightRequest">
-                    <xct:TabViewItem Text="Now Showing" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
-                        <!--NowShowing-->
+                    <xct:TabView TabIndicatorColor="Red" IsSwipeEnabled="False" SelectionChanged="UpdateHeightRequest">
+                        <xct:TabViewItem Text="Now Showing" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
+                            <!--NowShowing-->
 
-                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Grid x:Name="NowShowingContainer" ColumnSpacing="8" RowSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid x:Name="NowShowingContainer" ColumnSpacing="8" RowSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-                                <Grid.ColumnDefinitions >
+                                    <Grid.ColumnDefinitions >
 
-                                    <!-- Define your column definitions here -->
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                                        <!-- Define your column definitions here -->
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackLayout  Grid.Column="{Binding InColumn}" Grid.Row="{Binding InRow}" Margin="0,0,0,6" VerticalOptions="Start" >
-                                            <Image Source="{Binding MoviePoster}" Margin="0" Aspect="AspectFill"  HeightRequest="200" >
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout  Grid.Column="{Binding InColumn}" Grid.Row="{Binding InRow}" Margin="0,0,0,6" VerticalOptions="Start" >
+                                                <Image Source="{Binding MoviePoster}" Margin="0" Aspect="AspectFill"  HeightRequest="200" >
 
-                                                <Image.GestureRecognizers>
-                                                    <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                                </Image.GestureRecognizers>
-                                                
-                                            </Image>
-                                        </StackLayout>
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                    </Image.GestureRecognizers>
 
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </Grid>
+                                                </Image>
+                                            </StackLayout>
 
-                        </StackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </Grid>
 
-
-
-                    </xct:TabViewItem>
-
-                    <xct:TabViewItem Text="Upcoming" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
-                        <!--Coming soon-->
-                        <StackLayout x:Name="ComingSoonContainer">
-                            <Label Text="Tab2" TextColor="White"></Label>
-                        </StackLayout>
-                    </xct:TabViewItem>
-
-                </xct:TabView>
-
-            </StackLayout>
+                            </StackLayout>
 
 
-            <!--<Grid Grid.Row="1" Margin="0,20,0,0">
+
+                        </xct:TabViewItem>
+
+                        <xct:TabViewItem Text="Upcoming" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
+                            <!--Coming soon-->
+                            <StackLayout x:Name="ComingSoonContainer">
+                                <Label Text="Tab2" TextColor="White"></Label>
+                            </StackLayout>
+                        </xct:TabViewItem>
+
+                    </xct:TabView>
+
+                </StackLayout>
+
+
+                <!--<Grid Grid.Row="1" Margin="0,20,0,0">
 
 
             <ScrollView Orientation="Vertical">
@@ -124,10 +124,19 @@
 
 
 
+            </StackLayout>
+
+        </ScrollView>
+
+        <StackLayout VerticalOptions="Start" HeightRequest="50" BackgroundColor="Black" Opacity="0.8" >
+
+            <Image Source="TGV.png" HorizontalOptions="Center" Margin="0,0,0,50" HeightRequest="50"></Image>
+
         </StackLayout>
 
-    </ScrollView>
-
+        
+    </Grid>
+  
 
 
 </ContentPage>

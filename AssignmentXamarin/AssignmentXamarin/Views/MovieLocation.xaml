@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AssignmentXamarin.Views.MovieLocation">
+             x:Class="AssignmentXamarin.Views.MovieLocation" NavigationPage.HasNavigationBar="False"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <!--<pancake:PancakeView>
+                <Image Source=""></Image>
+                
+            </pancake:PancakeView>-->
+            
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

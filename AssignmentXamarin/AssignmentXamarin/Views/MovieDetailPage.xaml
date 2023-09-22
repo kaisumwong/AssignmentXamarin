@@ -8,7 +8,7 @@
 
     <ContentPage.Content>
 
-        <ScrollView>
+        <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout>
 
                 <WebView 
@@ -77,11 +77,15 @@
 
 
                     <pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer>
+                        <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="BuyTicket">
                         </TapGestureRecognizer>
                     </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
+                <StackLayout HeightRequest="300" BackgroundColor="Red"></StackLayout>
+                <StackLayout HeightRequest="300" BackgroundColor="Yellow"></StackLayout>
+                <StackLayout HeightRequest="300" BackgroundColor="Red"></StackLayout>
+                <StackLayout HeightRequest="300" BackgroundColor="Yellow"></StackLayout>
 
             </StackLayout>
         </ScrollView>
