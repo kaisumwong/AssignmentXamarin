@@ -14,6 +14,13 @@ namespace AssignmentXamarin.ViewModel
 {
     public class MovieDetailPageVM : BaseViewModel
     {
+
+        public MovieDetailPageVM()
+        {
+            Movie = new Movie();
+            
+        }
+
         public MovieDetailPageVM(Movie movie)
         {
             Movie = movie;
@@ -22,17 +29,21 @@ namespace AssignmentXamarin.ViewModel
             htmlsource.Html = Movie.MovieTrailerLink;
             FormattedYoutubeList = htmlsource;
         }
+
         protected override void OnLoadCommandExecute()
         {
     
         }
+
         private Movie movie;
         public Movie Movie
         {
-            get => movie;
-            set => SetProperty(ref movie, value);
+            get { return movie; }
+            set { SetProperty(ref movie, value); }
         }
+
         private HtmlWebViewSource formattedYoutubeList;
+
         public HtmlWebViewSource FormattedYoutubeList
         {
             get => formattedYoutubeList;

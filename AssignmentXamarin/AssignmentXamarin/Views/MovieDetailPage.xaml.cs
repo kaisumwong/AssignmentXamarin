@@ -29,20 +29,17 @@ namespace AssignmentXamarin.Views
             if (BindingContext is BaseViewModel viewModel)
                 viewModel.LoadCommand.Execute(null);
         }
+
         private MovieDetailPageVM MovieDetailPageVM;
+        private MovieLocationVM MovieLocationVM;
 
         private void BuyTicket(object sender, EventArgs e)
         {
+            var movieLocationPage = new MovieLocation(MovieDetailPageVM.Movie);
 
-            var x = sender as PancakeView;
-
-            var id = x.GestureRecognizers[0] as TapGestureRecognizer;
-
-            //var movieDetails = .Where(z => z.MovieID == Convert.ToInt32(id.CommandParameter.ToString())).FirstOrDefault();
-
-          
-            Navigation.PushAsync(new MovieLocation());
+            Navigation.PushAsync(movieLocationPage);
         }
+
 
 
     }

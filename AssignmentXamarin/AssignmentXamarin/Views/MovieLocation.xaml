@@ -2,17 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AssignmentXamarin.Views.MovieLocation" NavigationPage.HasNavigationBar="False"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="Black">
     <ContentPage.Content>
         <StackLayout>
 
-            <!--<pancake:PancakeView>
-                <Image Source=""></Image>
+
+            <StackLayout BackgroundColor="#242323" HeightRequest="30">
+                <Label Text="ShowTimes" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="None" FontSize="20"></Label>
+            </StackLayout>
+
+
+            <Image Source="{Binding MoviePoster}" HeightRequest="200" ></Image>
+
+
+
+            <StackLayout BackgroundColor="#242323" HeightRequest="60" x:Name="DateStackLayout">
                 
-            </pancake:PancakeView>-->
-            
-            
-            
+            </StackLayout>
+
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
