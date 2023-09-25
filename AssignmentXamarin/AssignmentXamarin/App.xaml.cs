@@ -4,6 +4,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace AssignmentXamarin
 {
     public partial class App : Application
@@ -13,10 +14,13 @@ namespace AssignmentXamarin
             InitializeComponent();
 
             MainPage = new NavigationPage(new TabbedPage1());
+     
+
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()

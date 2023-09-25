@@ -16,10 +16,13 @@
             <Image Source="{Binding MoviePoster}" HeightRequest="200" ></Image>
 
 
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout x:Name="DateStackLayout" Orientation="Horizontal">
 
-            <StackLayout BackgroundColor="#242323" HeightRequest="60" x:Name="DateStackLayout">
-                
-            </StackLayout>
+                    
+                </StackLayout>
+            </ScrollView>
+ 
 
 
 

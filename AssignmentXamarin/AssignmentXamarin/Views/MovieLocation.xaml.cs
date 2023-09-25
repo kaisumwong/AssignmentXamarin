@@ -1,5 +1,6 @@
 ﻿using AssignmentXamarin.Model;
 using AssignmentXamarin.ViewModel;
+using CarouselView.FormsPlugin.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,8 +55,13 @@ namespace AssignmentXamarin.Views
                 {
                     Orientation = StackOrientation.Vertical,
                     Padding = new Thickness(10),
-                    Spacing = 5
+                    Spacing = 5,
+                    BackgroundColor = Color.Red,
+                    Margin = new Thickness(0,20,0,0)
+
                 };
+
+            
 
                 // 创建日期标签
                 Label dateLabel = new Label
@@ -72,6 +78,12 @@ namespace AssignmentXamarin.Views
                     dateStackLayout.IsVisible = false;
                 }
 
+                TapGestureRecognizer tapGesture = new TapGestureRecognizer();
+                tapGesture.Tapped += MovieData_Clicked;
+                tapGesture.CommandParameter = currentDate.ToString("yyyy-MM-dd");
+                dateStackLayout.GestureRecognizers.Add(tapGesture);
+
+
                 // 将StackLayout添加到父级StackLayout中
                 DateStackLayout.Children.Add(dateStackLayout);
 
@@ -80,9 +92,13 @@ namespace AssignmentXamarin.Views
             }
         }
 
-
-
-
-
+        private void MovieData_Clicked(object sender, EventArgs e)
+        {
+            var stack = sender as StackLayout;
+            var tapGesture = stack.GestureRecognizers[0] as TapGestureRecognizer;
+            var date = tapGesture.CommandParameter.ToString();
+            DisplayAlert("halo", date, "ok");
+            
+        }
     }
 }
