@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="http://rotorgames.com" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentXamarin.Popup.MovieLocationPopup"
+                  CloseWhenBackgroundIsClicked="True">
+    <pages:PopupPage.Animation>
+        <pages:MoveAnimation 
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="250"
+            DurationOut="150"
+            EasingIn="SinIn"
+            EasingOut="SinIn"
+            
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <StackLayout BackgroundColor="White" VerticalOptions="End" HeightRequest="300">
+        <Label Text="Testing" TextColor="Red"></Label>
+    </StackLayout>
+
+
+
+
+</pages:PopupPage>

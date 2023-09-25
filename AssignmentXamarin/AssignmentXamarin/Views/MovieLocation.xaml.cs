@@ -1,6 +1,9 @@
 ﻿using AssignmentXamarin.Model;
+using AssignmentXamarin.Popup;
 using AssignmentXamarin.ViewModel;
 using CarouselView.FormsPlugin.Abstractions;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +34,20 @@ namespace AssignmentXamarin.Views
         }
 
 
+        protected override bool OnBackButtonPressed()
+        {
+            if(PopupNavigation.Instance.PopupStack.Count > 0)
+            {
+                PopupNavigation.Instance.PopAsync();
+            }
 
+            else
+            {
+                Navigation.PopAsync();  
+            }
+
+            return true;
+        }
         protected override void OnAppearing()
         {
             if (BindingContext is BaseViewModel viewModel)
@@ -97,7 +113,8 @@ namespace AssignmentXamarin.Views
             var stack = sender as StackLayout;
             var tapGesture = stack.GestureRecognizers[0] as TapGestureRecognizer;
             var date = tapGesture.CommandParameter.ToString();
-            DisplayAlert("halo", date, "ok");
+            //DisplayAlert("halo", date, "ok");
+            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup());
             
         }
     }

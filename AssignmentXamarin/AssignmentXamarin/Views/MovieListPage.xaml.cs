@@ -42,7 +42,7 @@ namespace AssignmentXamarin.Views
         };
 
             //foreach(var m in movies)
-            //{
+            //{ 
             //    m.FormattedDuration = FormatDuration(m);
             //}
 

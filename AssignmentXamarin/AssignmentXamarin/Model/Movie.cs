@@ -54,8 +54,8 @@ namespace AssignmentXamarin.Model
         public string Subtitle { get; set; }
         public DateTime MovieStartTime { get; set; }
         public DateTime MovieEndTime { get; set; }
-       
-        //public List<MovieSchedule> Schedules { get; set; }
+
+        public List<MovieSchedule> Schedules { get; set; }
         //FOR grid
         public int InRow { get; set; }
         public int InColumn { get; set; }
