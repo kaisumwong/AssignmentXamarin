@@ -114,7 +114,7 @@ namespace AssignmentXamarin.Views
             var tapGesture = stack.GestureRecognizers[0] as TapGestureRecognizer;
             var date = tapGesture.CommandParameter.ToString();
             //DisplayAlert("halo", date, "ok");
-            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup());
+            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
             
         }
     }
