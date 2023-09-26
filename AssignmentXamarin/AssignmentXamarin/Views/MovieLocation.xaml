@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AssignmentXamarin.Views.MovieLocation" NavigationPage.HasNavigationBar="False"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
              BackgroundColor="Black">
     <ContentPage.Content>
         <StackLayout>
@@ -19,12 +19,72 @@
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout x:Name="DateStackLayout" Orientation="Horizontal">
 
-                    
-                    
-                </StackLayout>
-            </ScrollView>
- 
+                    <Label Text="123456" FontAttributes="Italic" TextColor="White" />
+                    <ListView x:Name="DateList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding ., StringFormat='yyyy-MM-dd'}" FontAttributes="Italic" />
 
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+            </ScrollView>
+            <!--Location Lists-->
+            <StackLayout x:Name="CinemListsView">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <extensions:Expander>
+                                <extensions:Expander.Header>
+                                    <Label Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           FontSize="Medium" />
+                                </extensions:Expander.Header>
+
+                                <!--Date Lists-->
+                                <StackLayout BindableLayout.ItemsSource="{Binding Showtimes}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <!--Date String-->
+                                                <Frame BackgroundColor="#363636" BorderColor="Red">
+                                                    <Label Text="2023-09-29" TextColor="White"></Label>
+                                                </Frame>
+
+                                                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                                                    <!--Time Lists-->
+                                                    <StackLayout BindableLayout.ItemsSource="{Binding Value}" Orientation="Horizontal">
+                                                        <BindableLayout.ItemTemplate>
+                                                            <DataTemplate>
+                                                          
+                                                                <Frame BackgroundColor="#363636" BorderColor="Red" Padding="16,6">
+                                                                    <Label Text="14:00" TextColor="White"></Label>
+                                                                </Frame>
+
+                                                            </DataTemplate>
+                                                        </BindableLayout.ItemTemplate>
+
+                                                    </StackLayout>
+                                                </ScrollView>
+
+                                            </StackLayout>
+
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+
+
+                                </StackLayout>
+                            </extensions:Expander>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
 
 
 

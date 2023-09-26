@@ -24,6 +24,60 @@ namespace AssignmentXamarin.Views
         public MovieLocation()
         {
             InitializeComponent();
+
+            List<Cinema> cinemas = new List<Cinema>
+        {
+            new Cinema("Kuala Lumpur - Lalaport BBCC"),
+            new Cinema("Kuala Lumpur - Aurum, The Gardens Mall"),
+            new Cinema("Kuala Lumpur - Mid Valley Megamall"),
+            new Cinema("Petaling Jaya - 1 Utama (New Wing)"),
+            new Cinema("Petaling Jaya - Tropicana Gardens Mall"),
+        };
+
+            foreach (var cinema in cinemas)
+            {
+                foreach (var date in GenerateDateRange(DateTime.Now, DateTime.Now.AddDays(6)))
+                {
+                    cinema.Showtimes[date] = GenerateRandomShowtimes(5, 7);
+                    DateListString.Add(date);
+                }
+            }
+            DateList.ItemsSource = DateListString;
+            BindableLayout.SetItemsSource(CinemListsView, cinemas);
+        }
+
+        private List<DateTime> DateListString = new List<DateTime>();
+        private List<DateTime> GenerateDateRange(DateTime startDate, DateTime endDate)
+        {
+            List<DateTime> dateRange = new List<DateTime>();
+            DateTime currentDate = startDate;
+
+            while (currentDate <= endDate)
+            {
+                dateRange.Add(currentDate);
+                currentDate = currentDate.AddDays(1);
+            }
+
+            return dateRange;
+        }
+
+        private List<string> GenerateRandomShowtimes(int minShowings, int maxShowings)
+        {
+            List<string> showtimes = new List<string>();
+            Random random = new Random();
+
+            int numberOfShowings = random.Next(minShowings, maxShowings + 1);
+
+            for (int i = 0; i < numberOfShowings; i++)
+            {
+                int hours = random.Next(0, 24);
+                int minutes = random.Next(0, 60);
+
+                string formattedTime = $"{hours:D2}:{minutes:D2}";
+                showtimes.Add(formattedTime);
+            }
+
+            return showtimes;
         }
 
         public MovieLocation(Movie movie) : this()
@@ -33,17 +87,16 @@ namespace AssignmentXamarin.Views
             ShowDateStackLayouts(movie.MovieEndTime);
         }
 
-
         protected override bool OnBackButtonPressed()
         {
-            if(PopupNavigation.Instance.PopupStack.Count > 0)
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
             {
                 PopupNavigation.Instance.PopAsync();
             }
 
             else
             {
-                Navigation.PopAsync();  
+                Navigation.PopAsync();
             }
 
             return true;
@@ -73,11 +126,10 @@ namespace AssignmentXamarin.Views
                     Padding = new Thickness(10),
                     Spacing = 5,
                     BackgroundColor = Color.Red,
-                    Margin = new Thickness(0,20,0,0)
+                    Margin = new Thickness(0, 20, 0, 0)
 
                 };
 
-            
 
                 // 创建日期标签
                 Label dateLabel = new Label
@@ -115,7 +167,7 @@ namespace AssignmentXamarin.Views
             var date = tapGesture.CommandParameter.ToString();
             //DisplayAlert("halo", date, "ok");
             Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
-            
+
         }
     }
 }

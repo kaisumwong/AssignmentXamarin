@@ -12,8 +12,10 @@ using Xamarin.Forms.Xaml;
 namespace AssignmentXamarin.Popup
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MovieLocationPopup 
+    public partial class MovieLocationPopup
     {
+
+      
         public MovieLocationPopup(Movie MovieDetail)
         {
             InitializeComponent();

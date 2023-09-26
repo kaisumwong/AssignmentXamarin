@@ -16,6 +16,7 @@
     </pages:PopupPage.Animation>
     <StackLayout BackgroundColor="White" VerticalOptions="End" HeightRequest="300">
         <Label Text="{Binding Movie.Title}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Padding="0,15,0,0" FontSize="20"></Label>
+        <Label Text="{Binding Movie.Description}" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>
     </StackLayout>
 
 
