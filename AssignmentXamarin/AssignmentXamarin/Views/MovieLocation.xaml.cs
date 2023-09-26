@@ -36,9 +36,9 @@ namespace AssignmentXamarin.Views
 
             foreach (var cinema in cinemas)
             {
-                foreach (var date in GenerateDateRange(DateTime.Now, DateTime.Now.AddDays(6)))
+                foreach (var date in GenerateDateRange(DateTime.Now, DateTime.Now.AddDays(0)))
                 {
-                    cinema.Showtimes[date] = GenerateRandomShowtimes(5, 7);
+                    cinema.Showtimes[date] = GenerateRandomShowtimesWithAmPm(3, 5);
                     DateListString.Add(date);
                 }
             }
@@ -61,7 +61,7 @@ namespace AssignmentXamarin.Views
             return dateRange;
         }
 
-        private List<string> GenerateRandomShowtimes(int minShowings, int maxShowings)
+        private List<string> GenerateRandomShowtimesWithAmPm(int minShowings, int maxShowings)
         {
             List<string> showtimes = new List<string>();
             Random random = new Random();
@@ -70,15 +70,27 @@ namespace AssignmentXamarin.Views
 
             for (int i = 0; i < numberOfShowings; i++)
             {
-                int hours = random.Next(0, 24);
+                int hours = random.Next(10, 24);
                 int minutes = random.Next(0, 60);
+                string amPm = hours < 12 ? "AM" : "PM";
 
-                string formattedTime = $"{hours:D2}:{minutes:D2}";
+                if (hours > 12)
+                {
+                    hours -= 12;
+                }
+                else if (hours == 0)
+                {
+                    hours = 12;
+                }
+
+                string formattedTime = $"{hours:D2}:{minutes:D2} {amPm}";
                 showtimes.Add(formattedTime);
             }
 
             return showtimes;
         }
+
+
 
         public MovieLocation(Movie movie) : this()
         {
@@ -101,6 +113,7 @@ namespace AssignmentXamarin.Views
 
             return true;
         }
+
         protected override void OnAppearing()
         {
             if (BindingContext is BaseViewModel viewModel)
@@ -120,16 +133,22 @@ namespace AssignmentXamarin.Views
             while (currentDate <= movieEndTime.Date)
             {
                 // 创建日期的StackLayout
-                StackLayout dateStackLayout = new StackLayout
+                Frame dateStackLayout = new Frame
                 {
-                    Orientation = StackOrientation.Vertical,
+                    //Orientation = StackOrientation.Vertical,
                     Padding = new Thickness(10),
-                    Spacing = 5,
+                    //Spacing = 5,
                     BackgroundColor = Color.Red,
-                    Margin = new Thickness(0, 20, 0, 0)
+                    Margin = new Thickness(0, 20, 0, 0),
+                    CornerRadius = 3,
+                    
 
                 };
 
+                StackLayout dateLabelContainer = new StackLayout
+                {
+                    Orientation = StackOrientation.Vertical
+                };
 
                 // 创建日期标签
                 Label dateLabel = new Label
@@ -138,9 +157,11 @@ namespace AssignmentXamarin.Views
                     TextColor = Color.White
                 };
 
-                dateStackLayout.Children.Add(dateLabel);
+                dateLabelContainer.Children.Add(dateLabel);
 
+                dateStackLayout.Content = dateLabelContainer;
                 // 如果日期是过去的日期，则隐藏StackLayout
+
                 if (currentDate < DateTime.Now.Date)
                 {
                     dateStackLayout.IsVisible = false;
@@ -162,11 +183,11 @@ namespace AssignmentXamarin.Views
 
         private void MovieData_Clicked(object sender, EventArgs e)
         {
-            var stack = sender as StackLayout;
+            var stack = sender as Frame;
             var tapGesture = stack.GestureRecognizers[0] as TapGestureRecognizer;
             var date = tapGesture.CommandParameter.ToString();
             //DisplayAlert("halo", date, "ok");
-            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
+            //Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
 
         }
     }
