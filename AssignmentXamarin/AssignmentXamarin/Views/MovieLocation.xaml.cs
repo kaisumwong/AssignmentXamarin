@@ -25,6 +25,9 @@ namespace AssignmentXamarin.Views
         {
             InitializeComponent();
 
+        }
+        private List<Cinema> GenerateTimeShows()
+        {
             List<Cinema> cinemas = new List<Cinema>
         {
             new Cinema("Kuala Lumpur - Lalaport BBCC"),
@@ -39,14 +42,13 @@ namespace AssignmentXamarin.Views
                 foreach (var date in GenerateDateRange(DateTime.Now, DateTime.Now.AddDays(0)))
                 {
                     cinema.Showtimes[date] = GenerateRandomShowtimesWithAmPm(3, 5);
-                    DateListString.Add(date);
+
                 }
             }
-            DateList.ItemsSource = DateListString;
-            BindableLayout.SetItemsSource(CinemListsView, cinemas);
+            return cinemas;
         }
 
-        private List<DateTime> DateListString = new List<DateTime>();
+        private Dictionary<string, List<Cinema>> CinemaLists = new Dictionary<string, List<Cinema>>();
         private List<DateTime> GenerateDateRange(DateTime startDate, DateTime endDate)
         {
             List<DateTime> dateRange = new List<DateTime>();
@@ -129,21 +131,34 @@ namespace AssignmentXamarin.Views
             // 清除所有日期的StackLayout（如果有的话）
             DateStackLayout.Children.Clear();
 
+
+            bool isFirst = true;
             // 添加日期的StackLayout
             while (currentDate <= movieEndTime.Date)
             {
+                CinemaLists.Add(currentDate.ToString("yyyy-MM-dd"), GenerateTimeShows());
                 // 创建日期的StackLayout
                 Frame dateStackLayout = new Frame
                 {
                     //Orientation = StackOrientation.Vertical,
                     Padding = new Thickness(10),
                     //Spacing = 5,
-                    BackgroundColor = Color.Red,
+                    BackgroundColor = Color.White,
                     Margin = new Thickness(0, 20, 0, 0),
                     CornerRadius = 3,
-                    
+
 
                 };
+
+
+
+                if (isFirst)
+                {
+                    currentDateFrame = dateStackLayout;
+                    dateStackLayout.BackgroundColor = Color.Red;
+                    SelectedDate = currentDate.ToString("yyyy-MM-dd");
+                    isFirst = false;
+                }
 
                 StackLayout dateLabelContainer = new StackLayout
                 {
@@ -154,7 +169,7 @@ namespace AssignmentXamarin.Views
                 Label dateLabel = new Label
                 {
                     Text = currentDate.ToString("yyyy-MM-dd"),
-                    TextColor = Color.White
+                    TextColor = Color.Black
                 };
 
                 dateLabelContainer.Children.Add(dateLabel);
@@ -179,15 +194,44 @@ namespace AssignmentXamarin.Views
                 // 增加当前日期
                 currentDate = currentDate.AddDays(1);
             }
-        }
 
-        private void MovieData_Clicked(object sender, EventArgs e)
+
+            BindableLayout.SetItemsSource(CinemListsView, CinemaLists.First().Value);
+        }
+        private Frame currentDateFrame;
+        private async void MovieData_Clicked(object sender, EventArgs e)
         {
+            //await this.ScaleTo(20, 1000, Easing.Linear);
+
             var stack = sender as Frame;
             var tapGesture = stack.GestureRecognizers[0] as TapGestureRecognizer;
             var date = tapGesture.CommandParameter.ToString();
+
+            currentDateFrame.BackgroundColor = Color.White;
+            stack.BackgroundColor = Color.Red;
+            currentDateFrame = null;
+            currentDateFrame = stack;
+
+            SelectedDate = ((Label)((StackLayout)stack.Content).Children.FirstOrDefault(c => c is Label)).Text;
+            BindableLayout.SetItemsSource(CinemListsView, CinemaLists[date]);
+
             //DisplayAlert("halo", date, "ok");
-            //Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
+
+        }
+
+        private Frame StoreMovieTime;
+        private string SelectedDate;
+        private string SelectedTime;
+
+        private void MovieTime_Clicked(object sender, EventArgs e)
+        {
+
+            var stack = sender as Frame;
+
+            SelectedTime=((Label)stack.Content).Text;
+
+            DisplayAlert(SelectedDate, SelectedTime, "ok");
+            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
 
         }
     }

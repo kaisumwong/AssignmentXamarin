@@ -29,6 +29,8 @@ namespace AssignmentXamarin.Popup
                 viewModel.LoadCommand.Execute(null);
         }
 
+
+
         private MovieDetailPageVM movieDetailPageVM;
     }
 }

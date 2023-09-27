@@ -19,21 +19,7 @@
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout x:Name="DateStackLayout" Orientation="Horizontal">
 
-                    <Label Text="123456" FontAttributes="Italic" TextColor="White" />
-                    <ListView x:Name="DateList">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout>
-                                        <Label Text="{Binding ., StringFormat='yyyy-MM-dd'}" FontAttributes="Italic" />
-
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
                 </StackLayout>
-
             </ScrollView>
             <!--Location Lists-->
             <StackLayout x:Name="CinemListsView" Padding="0,10,0,0">
@@ -41,12 +27,15 @@
                     <DataTemplate>
                         <StackLayout HeightRequest="65">
                             <ScrollView>
-                                
-                                <extensions:Expander extensions:CornerRadiusEffect.CornerRadius="2">
+
+                                <extensions:Expander extensions:CornerRadiusEffect.CornerRadius="2"  ExpandAnimationLength="100" ExpandAnimationEasing="Sinout" >
                                     <extensions:Expander.Header>
+
                                         <Label Text="{Binding Name}"
                                            FontAttributes="Bold"
-                                           FontSize="Medium"/>
+                                           FontSize="15"/>
+
+
                                     </extensions:Expander.Header>
 
                                     <!--Date Lists-->
@@ -67,6 +56,11 @@
 
                                                                     <Frame BackgroundColor="#363636" BorderColor="White" Padding="16,6" CornerRadius="2">
                                                                         <Label Text="{Binding}" TextColor="White"></Label>
+
+                                                                        <Frame.GestureRecognizers>
+                                                                            <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="MovieTime_Clicked"></TapGestureRecognizer>
+                                                                        </Frame.GestureRecognizers>
+                                                                        
                                                                     </Frame>
 
                                                                 </DataTemplate>
