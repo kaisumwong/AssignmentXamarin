@@ -223,14 +223,26 @@ namespace AssignmentXamarin.Views
         private string SelectedDate;
         private string SelectedTime;
 
+        private Frame previousSelectedFrame = null;
+
         private void MovieTime_Clicked(object sender, EventArgs e)
         {
 
             var stack = sender as Frame;
 
-            SelectedTime=((Label)stack.Content).Text;
+            if (previousSelectedFrame != null)
+            {
+                previousSelectedFrame.BackgroundColor = Color.FromHex("#363636");
+                previousSelectedFrame.BorderColor = Color.White;
+            }
 
-            DisplayAlert(SelectedDate, SelectedTime, "ok");
+            SelectedTime = ((Label)stack.Content).Text;
+            stack.BackgroundColor = Color.Red;
+            stack.BorderColor = Color.Black;
+
+            previousSelectedFrame = stack;
+
+            //DisplayAlert(SelectedDate, SelectedTime, "ok");
             Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
 
         }

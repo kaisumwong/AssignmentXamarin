@@ -91,7 +91,7 @@ namespace AssignmentXamarin.Views
             return heightRequest + SLIDERHEIGHT;
         }
 
-
+ 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             var x = sender as Image;
