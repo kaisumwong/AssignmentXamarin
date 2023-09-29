@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AssignmentXamarin.Views.MovieTicket" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10,20">
+            <ListView ItemsSource="{Binding Ticketlist}" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10,5" HeightRequest="150">
+                                <Image Source="{Binding Image}"></Image>
+                                <Label Text="{Binding MovieTitle}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                <Label Text="{Binding ShowingDate}" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                                <Label Text="{Binding Seats}" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

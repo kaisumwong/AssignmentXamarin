@@ -5,41 +5,54 @@
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
              BackgroundColor="Black">
     <ContentPage.Content>
-        <StackLayout>
+        
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout>
 
 
-            <StackLayout BackgroundColor="#242323" HeightRequest="30">
-                <Label Text="ShowTimes" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="None" FontSize="20"></Label>
-            </StackLayout>
-
-
-            <Image Source="{Binding MoviePoster}" HeightRequest="200" ></Image>
-
-
-            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                <StackLayout x:Name="DateStackLayout" Orientation="Horizontal">
-
+                <StackLayout BackgroundColor="#242323" HeightRequest="30">
+                    <Label Text="ShowTimes" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="None" FontSize="20"></Label>
                 </StackLayout>
-            </ScrollView>
-            <!--Location Lists-->
-            <StackLayout x:Name="CinemListsView" Padding="0,10,0,0">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout HeightRequest="65">
-                            <ScrollView>
+
+
+
+                <Image Source="{Binding MoviePoster}" HeightRequest="200" ></Image>
+
+
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout x:Name="DateStackLayout" Orientation="Horizontal">
+
+                    </StackLayout>
+                </ScrollView>
+                <!--Location Lists-->
+                <StackLayout x:Name="CinemListsView" Padding="0,10,0,0">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout HeightRequest="65">
+
+                                <BoxView BackgroundColor="Gray" Opacity="0.2" HeightRequest="1" VerticalOptions="End"/>
+
+
 
                                 <extensions:Expander extensions:CornerRadiusEffect.CornerRadius="2"  ExpandAnimationLength="100" ExpandAnimationEasing="Sinout" >
                                     <extensions:Expander.Header>
 
                                         <Label Text="{Binding Name}"
                                            FontAttributes="Bold"
-                                           FontSize="15"/>
+                                           FontSize="15">
+
+
+                                        </Label>
+
+                                       
 
 
                                     </extensions:Expander.Header>
 
+                                    
                                     <!--Date Lists-->
                                     <StackLayout BindableLayout.ItemsSource="{Binding Showtimes}" Padding="0,6,0,0">
+
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
                                                 <StackLayout>
@@ -60,7 +73,7 @@
                                                                         <Frame.GestureRecognizers>
                                                                             <TapGestureRecognizer CommandParameter="{Binding MovieID}" Tapped="MovieTime_Clicked"></TapGestureRecognizer>
                                                                         </Frame.GestureRecognizers>
-                                                                        
+
                                                                     </Frame>
 
                                                                 </DataTemplate>
@@ -77,17 +90,20 @@
 
                                     </StackLayout>
                                 </extensions:Expander>
-                            </ScrollView>
 
-                        </StackLayout>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+
+
+
+
+
             </StackLayout>
+        </ScrollView>
+        
 
-
-
-
-
-        </StackLayout>
+            
     </ContentPage.Content>
 </ContentPage>

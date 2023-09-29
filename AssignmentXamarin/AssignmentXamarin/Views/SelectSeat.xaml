@@ -12,6 +12,8 @@
                     <Image Source="{Binding Movie.MoviePoster}" Aspect="AspectFill" WidthRequest="70" HeightRequest="70" HorizontalOptions="Start"></Image>
                     <StackLayout>
                         <Label Text="{Binding Movie.Title}" TextColor="White" FontSize="20"></Label>
+                        <Label Text="Selected Date" x:Name="ShowDate" TextColor="White" FontSize="10"></Label>
+                        <Label Text="Selected Time" x:Name="ShowTime" TextColor="White" FontSize="10"></Label>
 
                     </StackLayout>
 
@@ -26,11 +28,12 @@
                     
                     <Grid x:Name="MyGrid" HeightRequest="250" WidthRequest="350" HorizontalOptions="Center"
                                       />
+                    
                     <BoxView BackgroundColor="White" Opacity="0.2" HeightRequest="1" VerticalOptions="End"/>
 
                     <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="Center">
                         <StackLayout Orientation="Horizontal">
-                            <Rectangle Stroke="#353551" StrokeThickness="1" HeightRequest="15" WidthRequest="15" VerticalOptions="Center"/>
+                            <Rectangle Fill="#334481" StrokeThickness="1" HeightRequest="15" WidthRequest="15" VerticalOptions="Center"/>
                             <Label Text="Available" TextColor="White" FontSize="14" VerticalOptions="Center"/>
                         </StackLayout>
 
@@ -41,18 +44,18 @@
 
                         <StackLayout Orientation="Horizontal">
                             <Rectangle Fill="#9747FF" StrokeThickness="1" HeightRequest="15" WidthRequest="15" VerticalOptions="Center"/>
-                            <Label Text="Your Seats" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                            <Label Text="Selected" TextColor="White" FontSize="14" VerticalOptions="Center"/>
                         </StackLayout>
                     </StackLayout>
 
 
                     <Label Text="Selected Seat List" x:Name="SelectedSeatList" HeightRequest="100" FontSize="20"></Label>
+                    <Label Text="Total:" x:Name="TotalPriceLabel" HeightRequest="100" FontSize="20"></Label>
 
 
                 </StackLayout>
                 <Button Grid.Row="2" Text="Confirm" TextColor="White" WidthRequest="220" HeightRequest="40" CornerRadius="5" BackgroundColor="#9747FF"
-                    HorizontalOptions="Center" VerticalOptions="End"/>
-
+                    HorizontalOptions="Center" VerticalOptions="End" Clicked="TicketConfirmButton_Clicked"/>
             </Grid>
         </ScrollView>
 

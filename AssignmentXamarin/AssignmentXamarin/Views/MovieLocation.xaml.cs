@@ -34,7 +34,13 @@ namespace AssignmentXamarin.Views
             new Cinema("Kuala Lumpur - Aurum, The Gardens Mall"),
             new Cinema("Kuala Lumpur - Mid Valley Megamall"),
             new Cinema("Petaling Jaya - 1 Utama (New Wing)"),
-            new Cinema("Petaling Jaya - Tropicana Gardens Mall"),
+            new Cinema("Johor Bahru - The Mall,Mid Valley"),
+            new Cinema("Johor Bahru - Sunway Big Box"),
+            new Cinema("Kulai - IOI Mall"),
+            new Cinema("Subang Jaya - Summit USJ"),
+            new Cinema("Suabang Jaya - Subang Parade"),
+            new Cinema("Setia Alam - Setia City Mall"),
+
         };
 
             foreach (var cinema in cinemas)
@@ -243,7 +249,7 @@ namespace AssignmentXamarin.Views
             previousSelectedFrame = stack;
 
             //DisplayAlert(SelectedDate, SelectedTime, "ok");
-            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie));
+            Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new MovieLocationPopup(movie,SelectedTime,SelectedDate));
 
         }
     }

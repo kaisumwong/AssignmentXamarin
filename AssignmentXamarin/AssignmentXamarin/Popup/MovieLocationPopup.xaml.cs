@@ -28,11 +28,13 @@ namespace AssignmentXamarin.Popup
 
         }
 
-        public MovieLocationPopup(Movie MovieDetail)
+        public MovieLocationPopup(Movie MovieDetail,string selectedDate,string selectedTime)
         {
             InitializeComponent();
             movieDetailPageVM = new MovieDetailPageVM(MovieDetail);
             BindingContext = movieDetailPageVM;
+            MovieDateLabel.Text = selectedDate;
+            MovieTimeLabel.Text = selectedTime;
         }
 
         protected override void OnAppearing()
@@ -48,7 +50,7 @@ namespace AssignmentXamarin.Popup
 
         private void SelectSeatButton_Clicked(object sender, EventArgs e)
         {
-            var SelectSeatView = new SelectSeat(movieDetailPageVM.Movie);
+            var SelectSeatView = new SelectSeat(movieDetailPageVM.Movie, SelectedDate, SelectedTime);
             PopupNavigation.Instance.PopAsync();
             Navigation.PushAsync(SelectSeatView);   
         }

@@ -20,13 +20,19 @@
         <StackLayout>
             <Label Text="{Binding Movie.Title}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Padding="0,15,0,0" FontSize="20"></Label>
             <Label Text="{Binding Movie.Description}" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>
-            <!--<Label Text="{Binding }" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>-->
+            <Label Text="MovieDate" x:Name="MovieDateLabel" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>
+            <Label Text="MovieTime" x:Name="MovieTimeLabel" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>
 
-            <Button Text="Select Seat" BackgroundColor="#fcc52d" CornerRadius="4" Padding="20,0,0,0" Clicked="SelectSeatButton_Clicked"></Button>
+
+                <Button Text="Select Seat" BackgroundColor="#fcc52d" CornerRadius="5" Clicked="SelectSeatButton_Clicked" VerticalOptions="EndAndExpand"
+                    WidthRequest="220" HeightRequest="40"></Button>
+
+
 
         </StackLayout>
 
 
+        
     </Frame>
 
 

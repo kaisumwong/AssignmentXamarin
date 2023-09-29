@@ -9,7 +9,7 @@ namespace AssignmentXamarin.Model
         public string MovieTitle { get; set; }
         public DateTime ShowingDate { get; set; }
         public string Image { get; set; }
-        public int[] Seats { get; set; }
+        public string Seats { get; set; }
 
     }
 }
