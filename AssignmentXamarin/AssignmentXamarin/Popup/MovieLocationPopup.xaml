@@ -22,7 +22,7 @@
             <Label Text="{Binding Movie.Description}" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>
             <!--<Label Text="{Binding }" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="None"></Label>-->
 
-            <Button Text="Select Seat" BackgroundColor="Yellow" CornerRadius="4" Padding="20,0,0,0" Clicked="SelectSeatButton_Clicked"></Button>
+            <Button Text="Select Seat" BackgroundColor="#fcc52d" CornerRadius="4" Padding="20,0,0,0" Clicked="SelectSeatButton_Clicked"></Button>
 
         </StackLayout>
 

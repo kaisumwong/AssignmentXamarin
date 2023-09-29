@@ -24,7 +24,7 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
                     PositionShiftValue="80"
-                    ItemsSource="{Binding movies}" x:Name="MovieList"
+                x:Name="MovieList"
                     IsCyclical="True"
                 IndicatorView="IndiacatorView"  
                 IsUserInteractionRunning="True" >
@@ -95,10 +95,30 @@
 
                         </xct:TabViewItem>
 
-                        <xct:TabViewItem Text="Upcoming" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
+                        <xct:TabViewItem Text="Expire Movie" TextColor="White" FontAttributes="Bold" TextColorSelected="red">
                             <!--Coming soon-->
-                            <StackLayout x:Name="ComingSoonContainer">
-                                <Label Text="Tab2" TextColor="White"></Label>
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid x:Name="ExpireMovieContainer" ColumnSpacing="8" RowSpacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                    <Grid.ColumnDefinitions >
+
+                                        <!-- Define your column definitions here -->
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout  Grid.Column="{Binding InColumn}" Grid.Row="{Binding InRow}" Margin="0,0,0,6" VerticalOptions="Start" >
+                                                <Image Source="{Binding MoviePoster}" Margin="0" Aspect="AspectFill"  HeightRequest="200" >
+
+                                                </Image>
+                                            </StackLayout>
+
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </Grid>
                             </StackLayout>
                         </xct:TabViewItem>
 

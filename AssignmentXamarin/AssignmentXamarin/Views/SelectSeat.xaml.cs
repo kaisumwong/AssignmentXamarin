@@ -17,6 +17,9 @@ namespace AssignmentXamarin.Views
     {
         public static List<string> CheckOutSelectedSeat = new List<string>();
 
+        public int W = 0;
+        public int H = 0;
+        public int CSId = 0;
 
         public SelectSeat(Movie moviedetail)
         {
@@ -35,8 +38,7 @@ namespace AssignmentXamarin.Views
                     {
                         BackgroundColor = Color.White,
                         Children =
-                        { new Label { Text = $"R{i} C{z}", FontSize = 20, HorizontalOptions = LayoutOptions.Center },
-                        }
+                        { new Image { Source="unselect.png", HorizontalOptions = LayoutOptions.CenterAndExpand } },
                     };
 
                     TapGestureRecognizer tapGesture = new TapGestureRecognizer();
@@ -52,13 +54,13 @@ namespace AssignmentXamarin.Views
 
                         if (selectedSeat.Source.ToString() == "File: unselect.ppg")
                         {
-                            selectedSeat.Source = "selected.jpg";
+                            selectedSeat.Source = "selected.png";
                             CheckOutSelectedSeat.Add(selectedSeatPosition.CommandParameter.ToString());
                             SelectedSeatList.Text = string.Join(",", CheckOutSelectedSeat);
                         }
                         else
                         {
-                            selectedSeat.Source = "unselect.jpg";
+                            selectedSeat.Source = "unselect.png";
                             CheckOutSelectedSeat.Remove(selectedSeatPosition.CommandParameter.ToString());
                             SelectedSeatList.Text = string.Join(",", CheckOutSelectedSeat);
                         }

@@ -1,6 +1,7 @@
 ﻿using AssignmentXamarin.Model;
 using AssignmentXamarin.ViewModel;
 using AssignmentXamarin.Views;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,7 @@ namespace AssignmentXamarin.Popup
         private void SelectSeatButton_Clicked(object sender, EventArgs e)
         {
             var SelectSeatView = new SelectSeat(movieDetailPageVM.Movie);
+            PopupNavigation.Instance.PopAsync();
             Navigation.PushAsync(SelectSeatView);   
         }
     }
