@@ -119,7 +119,7 @@ namespace AssignmentXamarin.Views
                 MovieTitle = movieDetailPageVM.Movie.Title,
                 Image = movieDetailPageVM.Movie.MoviePoster,
                 Seats = string.Join(",",CheckOutSelectedSeat),
-                ShowingDate = movieDetailPageVM.Movie.MovieStartTime,
+                ShowingDate = movieDetailPageVM.Movie.DurationTime,
             };
             MessagingCenter.Send<App, Ticket>((App)Application.Current, "AddTicket", ticket);
             await DisplayAlert("","Payment Successful", "Ok");

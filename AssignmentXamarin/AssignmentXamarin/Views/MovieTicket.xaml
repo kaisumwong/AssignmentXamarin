@@ -6,16 +6,20 @@
     
     <ContentPage.Content>
         <StackLayout Padding="10,20">
+            <StackLayout>
+                <Label Text="My Ticket" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"></Label>
+            </StackLayout>
             <ListView ItemsSource="{Binding Ticketlist}" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="10,5" HeightRequest="150">
-                                <Image Source="{Binding Image}"></Image>
-                                <Label Text="{Binding MovieTitle}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-                                <Label Text="{Binding ShowingDate}" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                            <StackLayout Orientation="Horizontal" Padding="10,5" HeightRequest="200" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="70 " WidthRequest="70"></Image>
+                                <Label Text="{Binding MovieTitle}" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                                <Label Text="{Binding ShowingDate}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
                                 <Label Text="{Binding Seats}" HorizontalOptions="EndAndExpand" TextColor="White"/>
                             </StackLayout>
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

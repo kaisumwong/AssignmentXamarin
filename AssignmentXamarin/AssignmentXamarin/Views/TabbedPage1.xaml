@@ -10,6 +10,6 @@
     <!--Pages can be added as references or inline-->
 
     <views:MovieListPage IconImageSource="MovieIcon.png" Title="Movies"/>
-    <views:MovieTicket IconImageSource="MovieIcon.png" Title="Movies"/>
+    <views:MovieTicket IconImageSource="ticket.png" Title="Ticket"/>
     
 </TabbedPage>    
