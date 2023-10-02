@@ -8,7 +8,7 @@
 
     <ContentPage.Content>
 
-        <ScrollView VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
             <StackLayout>
 
                 <WebView 

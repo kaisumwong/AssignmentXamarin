@@ -9,21 +9,28 @@
             <StackLayout>
                 <Label Text="My Ticket" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold"></Label>
             </StackLayout>
-            <ListView ItemsSource="{Binding Ticketlist}" SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="10,5" HeightRequest="200" HorizontalOptions="FillAndExpand">
-                                <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="70 " WidthRequest="70"></Image>
-                                <Label Text="{Binding MovieTitle}" HorizontalOptions="StartAndExpand" TextColor="White"/>
-                                <Label Text="{Binding ShowingDate}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-                                <Label Text="{Binding Seats}" HorizontalOptions="EndAndExpand" TextColor="White"/>
+            <BoxView BackgroundColor="White" Opacity="0.2" HeightRequest="1" VerticalOptions="End"/>
+
+            <ScrollView>
+                <StackLayout BindableLayout.ItemsSource="{Binding Ticketlist}" Margin="0,20,0,0">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout HeightRequest="200" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,30,0,0">
+                                <Image Source="{Binding Image}" HeightRequest="20" WidthRequest="150" Aspect="AspectFit"></Image>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="0,30,0,0">
+                                    <Label Text="{Binding MovieTitle}" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" FontSize="20"/>
+                                    <Label Text="{Binding ShowingDate}" HorizontalOptions="Center" TextColor="White"/>
+                                    <Label Text="{Binding Seats}" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding PurchaseDate}" TextColor="White" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding PurchaseTime}" HorizontalOptions="Center" TextColor="White"/>
+                                </StackLayout>
                             </StackLayout>
 
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

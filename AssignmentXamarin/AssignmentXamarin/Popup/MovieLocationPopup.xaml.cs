@@ -16,18 +16,6 @@ namespace AssignmentXamarin.Popup
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieLocationPopup 
     {
-        private string SelectedDate;
-        private string SelectedTime;
-        private MovieLocation movieLocation;
-
-        public MovieLocationPopup(string selectedDate, string selectedTime, MovieLocation movieLocation)
-        {
-            SelectedDate = selectedDate;
-            SelectedTime = selectedTime;
-            this.movieLocation = movieLocation;
-
-        }
-
         public MovieLocationPopup(Movie MovieDetail,string selectedDate,string selectedTime)
         {
             InitializeComponent();
@@ -50,7 +38,7 @@ namespace AssignmentXamarin.Popup
 
         private void SelectSeatButton_Clicked(object sender, EventArgs e)
         {
-            var SelectSeatView = new SelectSeat(movieDetailPageVM.Movie, SelectedDate, SelectedTime);
+            var SelectSeatView = new SelectSeat(movieDetailPageVM.Movie, MovieDateLabel.Text, MovieTimeLabel.Text);
             PopupNavigation.Instance.PopAsync();
             Navigation.PushAsync(SelectSeatView);   
         }

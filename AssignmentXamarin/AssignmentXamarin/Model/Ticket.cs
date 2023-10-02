@@ -10,6 +10,7 @@ namespace AssignmentXamarin.Model
         public TimeSpan ShowingDate { get; set; }
         public string Image { get; set; }
         public string Seats { get; set; }
-
+        public string PurchaseDate { get; set; }
+        public string PurchaseTime { get; set; }
     }
 }
